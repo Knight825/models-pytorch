@@ -399,6 +399,6 @@ def se_resnet50(**kwargs):
     model = cbam_resnet50(withSamlayers=[False,False,False,False],**kwargs)
     return model
 
-def se_resnet50(**kwargs):
+def se_resnet50_layer4(**kwargs):
     model = cbam_resnet50_layer4(withSamlayers=[False,False,False,False],**kwargs)
     return model
