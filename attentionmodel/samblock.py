@@ -10,7 +10,7 @@ class SAMblock(torch.nn.Module):
         self.conv1 = torch.nn.Conv2d(2,self.outplanes,(size,size),stride=1,padding=size//2)
         if self.model != 'full': 
             self.conv1 = torch.nn.Conv2d(1,self.outplanes,(size,size),stride=1,padding=size//2)
-        self.sigmod = torch.nn.Sigmoid2d()
+        self.sigmod = torch.nn.Sigmoid()
 
     def forward(self,x):
         if self.model == 'mean':
