@@ -11,7 +11,7 @@ class SEBlock(torch.nn.Module):
         self.linear1 = torch.nn.Conv2d(inplanes,self.replanes,(1,1),padding=0)
         self.relu = torch.nn.ReLU(inplace=True)
         self.linear2 = torch.nn.Conv2d(self.replanes,inplanes,(1,1),padding=0)
-        self.sigmod = torch.nn.Sigmoid(1)
+        self.sigmod = torch.nn.Sigmoid()
     def forward(self,x):
         se = self.pool(x)
         se = self.linear1(se)
@@ -32,7 +32,7 @@ class CAMBlock(torch.nn.Module):
         self.relu = torch.nn.ReLU(inplace = True)
         self.avglinear2 = torch.nn.Conv2d(self.planes,inplanes,(1,1),padding=0)
         self.maxlinear2 = torch.nn.Conv2d(self.planes,inplanes,(1,1),padding=0)
-        self.sigmod = torch.nn.Sigmoid(1)
+        self.sigmod = torch.nn.Sigmoid()
     def forward(self,x):
         x1 = self.poolingavg(x)
         x2 = self.poolingmax(x)
